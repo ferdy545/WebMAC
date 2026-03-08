@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aula 2 - Desafio 1</title>
+
+        <style>
+            body { background-color: black; }
+            h1 { color: white; }
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>A luz está APAGADA</h1>
+        <button onclick="alternarLuz()">Interruptor</button>
+
+        <script>
+
+            function alternarLuz() {
+                modo = document.querySelector("h1");
+
+                if(modo.innerHTML === "A luz está APAGADA") {
+                    modo.innerHTML = "A luz está ACESA";
+                    modo.style.color = "black";
+                    document.body.style.backgroundColor = "white";
+                }
+                else {
+                    modo.innerHTML = "A luz está APAGADA";
+                    modo.style.color = "white";
+                    document.body.style.backgroundColor = "black";
+                }
+            }
+
+        </script>
+
+    </body>
+
+</html>
