@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+        <title>Meu Site</title>
+        <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    </head>
+
+    <body>
+
+        <h1>Meu Site</h1>
+        <p>Bem-vindo ao meu site!</p>
+
+        <nav>
+            <button hx-get="/home"
+                    hx-target="main"
+                    hx-push-url="true">
+                Curtir (Home)
+            </button>
+
+            <button hx-get="/home/jupiter"
+                    hx-target="main"
+                    hx-push-url="true">
+                JúpiterWeb
+            </button>
+
+            <button hx-get="/home/professor"
+                    hx-target="main"
+                    hx-push-url="true">
+                Professor
+            </button>
+        </nav>
+
+        <hr>
+
+        <main hx-get="{{ pagina }}"
+              hx-target="main"
+              hx-trigger="load"
+              hx-swap="innerHTML">
+        </main>
+
+    </body>
+</html>

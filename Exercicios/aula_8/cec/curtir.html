@@ -1,0 +1,17 @@
+<div id="div">
+    <h1>Curtir</h1>
+    <p>Contador: {{ contador }}</p>
+
+    <button hx-post="/curtir"
+            hx-target="#div"
+            hx-swap="outerHTML">
+        Curtir!
+    </button>
+
+    <button hx-post="/zerar"
+            hx-confirm="Tem certeza que quer zerar as curtidas?"
+            hx-target="#div"
+            hx-swap="outerHTML">
+        Zerar
+    </button>
+</div>
