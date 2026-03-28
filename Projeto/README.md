@@ -3,7 +3,7 @@ Escolha entre dois Bagulhos e o app atualizará a sua nota para ambos (aumentar 
 
 ## Telas
 - Tela 1: escolha entre dois Bagulhos exibidos aleatoriamente.
-- Tela 2: veja a sua lista de Bagulhos, ordenada da maior para a menor nota.
+- Tela 2: adicione ou remova Bagulhos e veja a sua lista de Bagulhos, ordenada da maior para a menor nota.
 
 ## Modelos
 - Modelo 1: Bagulho (nome, nota, Categoria).
@@ -16,7 +16,7 @@ Relação entre os dois modelos:
 ## Operações Básicas (CRUD)
 - Create: adicionar um Bagulho a sua lista.
 - Read: ler dois Bagulhos aleatórios da sua lista e exibi-los na Tela 1.
-- Update: atualizar a nota dos dois Bagulhos exibidos com base na escolha feita.
+- Update: atualizar a nota dos dois Bagulhos exibidos na Tela 1 com base na escolha feita.
 - Delete: excluir um Bagulho da sua lista.
 
 ## Opções Implementadas
