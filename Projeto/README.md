@@ -1,13 +1,13 @@
 # BagulhoRank
-Escolha entre dois Bagulhos e o app atualizará a sua nota para ambos (aumentar ou diminuir a depender da escolha).
+Escolha entre dois Bagulhos e o app atualizará o BagulhoScore™ para ambos (aumentar ou diminuir a depender da escolha).
 
 ## Telas
 - Tela 1: escolha entre dois Bagulhos exibidos aleatoriamente.
-- Tela 2: adicione ou remova Bagulhos e veja a sua lista de Bagulhos, ordenada da maior para a menor nota.
+- Tela 2: adicione ou remova Bagulhos e veja a sua lista de Bagulhos, ordenada do maior para o menor BagulhoScore™.
 
 ## Modelos
-- Modelo 1: Bagulho (nome, nota, Categoria).
-- Modelo 2: Categoria (nome).
+- Modelo 1: Bagulho (nome, Categoria, imagem, bagulho_score).
+- Modelo 2: Categoria (nome, cor).
 
 Relação entre os dois modelos:
 - one-to-many (uma Categoria possui vários Bagulhos, mas cada Bagulho só pode pertencer a uma Categoria).
@@ -16,7 +16,7 @@ Relação entre os dois modelos:
 ## Operações Básicas (CRUD)
 - Create: adicionar um Bagulho a sua lista.
 - Read: ler dois Bagulhos aleatórios da sua lista e exibi-los na Tela 1.
-- Update: atualizar a nota dos dois Bagulhos exibidos na Tela 1 com base na escolha feita.
+- Update: atualizar o BagulhoScore™ dos dois Bagulhos exibidos na Tela 1 com base na escolha feita.
 - Delete: excluir um Bagulho da sua lista.
 
 ## Opções Implementadas
