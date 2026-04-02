@@ -1,0 +1,21 @@
+<!--
+div das cartas que aparecerão na card-choice-box na página A (index.html)
+-->
+
+<div class="card-A" style="--card_color: {{ bagulho.categoria.cor }}">
+    
+    <div class="card-header-A">
+        <h3>{{ bagulho.nome }}</h3>
+        <p class="category-text">{{ bagulho.categoria.nome }}</p>
+    </div>
+
+    <img src="{{ bagulho.imagem }}" onerror="this.src='/static/placeholder.png'">
+
+    <button
+        hx-post="/update_score/{{ bagulho.id }}/{{ opponent_id }}"
+        hx-target=".card-choice-box"
+        hx-swap="innerHTML">
+        Escolher
+    </button>
+
+</div>

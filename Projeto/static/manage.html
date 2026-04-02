@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BagulhoRank</title>
+
+        <link rel="stylesheet" href="/static/styles.css">
+        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    </head>
+
+    <body>
+
+        <header>
+
+            <div>
+                <h1>BagulhoRank™</h1>
+                <p>Um classificador de bagulhos completamente inútil</p>
+            </div>
+
+            <nav>
+                <a href="/" class="button">Escolha</a>
+                <a href="/manage" class="button">Bagulhos</a>
+            </nav>
+
+        </header>
+
+        <main class="main-B">
+            
+            <form 
+                hx-post="/criar_bagulho"
+                hx-target="#error-msg" 
+                hx-swap="innerHTML"
+                hx-on::after-request="if(event.detail.successful) this.reset()"
+                class="form">
+
+                <input name="nome"      type="text" maxlength="64" placeholder="Nome"           required>
+                <input name="categoria" type="text" maxlength="48" placeholder="Categoria"      required>
+                <input name="imagem"    type="text"                placeholder="URL da imagem (opcional)">
+
+                <button type="submit">Adicionar</button>
+                
+                <div id="error-msg"></div>
+            </form>
+            
+            <div class="card-list"
+                hx-get="/listar_bagulhos?offset=0&limit=10"
+                hx-trigger="load, reloadList from:body"
+                hx-swap="innerHTML">
+            </div>
+
+        </main>
+
+        <footer>© 2026 BagulhoRank, powered by BagulhoScore™. Nenhum direito reservado.</footer>
+
+    </body>
+
+</html>

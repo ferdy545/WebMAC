@@ -49,6 +49,10 @@ footer {
     font-size: 0.8rem;
 }
 
+.category-text {
+    color: var(--card_color);
+}
+
 
 
 /* ============================================================================
@@ -78,15 +82,17 @@ footer {
     margin-bottom: 50px;
 }
 
+
 /* ========== Container dos dois cards dos Bagulhos ========== */
 
 .card-choice-box {
     display: flex;
     gap: 30px;
+    height: 80%;
     width: 100%;
-    max-width: 900px;
-    height: 60%;
+    max-width: 1200px;
 }
+
 
 /* ========== Cards dos Bagulhos ========== */
 
@@ -101,6 +107,7 @@ footer {
     justify-content: space-around;
     align-items: center;
     transition: transform 0.2s ease-in-out;
+    border: 3px solid var(--card_color);
 }
 
 .card-A:hover {
@@ -110,16 +117,21 @@ footer {
 .card-header-A {
     text-align: center;
     overflow-wrap: break-word;
-    max-width: 300px;
+    max-width: 400px;
+}
+
+.card-header-A h3 {
+    font-size: 1.5vw
 }
 
 .card-header-A p {
+    font-size: 0.9vw;
     margin-bottom: 0;
 }
 
 .card-A img {
-    max-width: 100%;
-    max-height: 50%;
+    width: 20vw;
+    height: 20vh;
     object-fit: contain;
     flex: 1;
     margin: 10px 0;
@@ -133,6 +145,7 @@ footer {
     font-size: 1rem;
     border-radius: 8px;
     cursor: pointer;
+    font-size: 1.2vw;
 }
 
 .card-A button:hover {
@@ -155,6 +168,7 @@ footer {
 }
 
 /* ========== Formulário (criar Bagulho) ========== */
+
 
 .form {
     width: 300px;
@@ -184,6 +198,7 @@ footer {
     background: rgb(0, 123, 255);
 }
 
+
 /* ========== Container da lista dos cards dos Bagulhos ========== */
 
 .card-list {
@@ -194,6 +209,7 @@ footer {
     flex-direction: column;
     gap: 15px;
 }
+
 
 /* ========== Cards dos Bagulhos ========== */
 
@@ -207,6 +223,7 @@ footer {
     border-radius: 10px;
     padding: 15px;
     gap: 10px;
+    border-left: 10px solid var(--card_color);
 }
 
 .card-header-B {
@@ -322,7 +339,7 @@ footer {
 
     .card-choice-box {
         gap: 10px;
-        height: 70%;
+        height: 80%;
     }
 
     .card-A {
@@ -330,15 +347,15 @@ footer {
     }
 
     .card-header-A h3 {
-        font-size: 1.2rem;
+        font-size: 1.0rem;
     }
 
     .card-header-A p {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
 
     .card-A img {
-        max-height: 40%;
+        max-height: 15vh;
     }
 
     .card-A button {

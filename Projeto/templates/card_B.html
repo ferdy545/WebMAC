@@ -1,0 +1,29 @@
+<!--
+div das cartas que aparecerão na card_list na página B (manage.html)
+-->
+
+<div class="card-B" style="--card_color: {{ bagulho.categoria.cor }}">
+
+    <div class="card-rank-position">#{{ position }}</div>
+
+    <button 
+        class="delete-card-button"
+        hx-delete="/excluir_bagulho/{{ bagulho.id }}"
+        hx-confirm="Tem certeza que quer excluir este bagulho?"
+        hx-target="closest .card-B"
+        hx-swap="outerHTML">
+        <img src="/static/trashbin.png">
+    </button>
+
+    <div class="card-header-B">
+        <h2>{{ bagulho.nome }}</h2>
+        <p class="category-text">{{ bagulho.categoria.nome }}</p>
+    </div>
+
+    <p>BagulhoScore:</p>
+
+    <div class="card-score">{{ bagulho.score }}</div>
+
+    <img src="{{ bagulho.imagem }}" onerror="this.src='/static/placeholder.png'">
+
+</div>

@@ -1,0 +1,15 @@
+<!--
+div com as duas cartas que aparecerão na página A (index.html)
+-->
+
+<div class="card-choice-box">
+
+    {% set bagulho = bagulho1 %}
+    {% set opponent_id = bagulho2.id %}
+    {% include "card_A.html" %}
+
+    {% set bagulho = bagulho2 %}
+    {% set opponent_id = bagulho1.id %}
+    {% include "card_A.html" %}
+
+</div>

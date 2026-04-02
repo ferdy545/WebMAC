@@ -1,0 +1,22 @@
+{% for bagulho in bagulhos %}
+
+    {% set position = loop.index0 + position_start %}
+    {% include "card_B.html" %}
+
+{% endfor %}
+
+
+{% if has_more %}
+
+    <div
+        hx-get="/listar_bagulhos?offset={{ next_offset }}&limit={{ limit }}"
+        hx-trigger="intersect once"
+        hx-swap="outerHTML">
+
+        <p style="text-align:center; color: rgb(100,100,100);">Carregando...</p>
+    </div>
+
+{% else %}
+    <p style="text-align:center; padding:20px; color: rgb(100,100,100);">Fim da lista</p>
+    
+{% endif %}

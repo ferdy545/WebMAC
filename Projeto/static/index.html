@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>BagulhoRank</title>
 
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="/static/styles.css">
+        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
     </head>
 
     <body>
@@ -20,8 +21,8 @@
             </div>
 
             <nav>
-                <a href="index.html" class="button">Escolha</a>
-                <a href="manage.html" class="button">Bagulhos</a>
+                <a href="/" class="button">Escolha</a>
+                <a href="/manage" class="button">Bagulhos</a>
             </nav>
 
         </header>
@@ -36,26 +37,10 @@
             </h2>
             <p>Quem venceria?</p>
 
-            <div class="card-choice-box">
-
-                <div class="card-A">
-                    <div class="card-header-A">
-                        <h3>Bagulho X</h3>
-                        <p>Categoria x</p>
-                    </div>
-                    <img src="placeholder.png" alt="bagulho X">
-                    <button>Bagulho X, eu escolho você!</button>
-                </div>
-
-                <div class="card-A">
-                    <div class="card-header-A">
-                        <h3>Bagulho Y</h3>
-                        <p>Categoria y</p>
-                    </div>
-                    <img src="placeholder.png" alt="bagulho Y">
-                    <button>Bagulho Y, eu escolho você!</button>
-                </div>
-
+            <div class="card-choice-box"
+                hx-get="/choice"
+                hx-trigger="load"
+                hx-swap="innerHTML">
             </div>
 
         </main>
