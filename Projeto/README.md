@@ -1,3 +1,10 @@
+MAC0350 - Introdução ao Desenvolvimento de Sistemas de Software <br>
+Projeto individual de introdução ao desenvolvimento web - curso 'WebMAC' por USPCodeLab <br>
+Aluno: Fernando Ryuji <br>
+Nome do projeto: BagulhoRank
+
+---
+
 # BagulhoRank
 Escolha entre dois Bagulhos e o app atualizará o BagulhoScore™ para ambos (aumentar ou diminuir a depender da escolha).
 
