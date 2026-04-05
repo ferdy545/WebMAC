@@ -14,7 +14,7 @@ Relação entre os dois modelos:
 > Sim, eu sei que isso não faz sentido, mas quem cria as regras aqui sou eu! >:)
 
 ## Operações Básicas (CRUD)
-- Create: adicionar um Bagulho a sua lista.
+- Create: adicionar um Bagulho à sua lista.
 - Read: ler dois Bagulhos aleatórios da sua lista e exibi-los na Tela A.
 - Update: atualizar o BagulhoScore™ dos dois Bagulhos exibidos na Tela A com base na escolha feita.
 - Delete: excluir um Bagulho da sua lista.
