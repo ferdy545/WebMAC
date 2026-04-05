@@ -33,7 +33,6 @@
                 hx-post="/criar_bagulho"
                 hx-target="#error-msg" 
                 hx-swap="innerHTML"
-                hx-on::after-request="if(event.detail.successful) this.reset()"
                 class="form">
 
                 <input name="nome"      type="text" maxlength="64" placeholder="Nome"           required>
@@ -45,8 +44,12 @@
                 <div id="error-msg"></div>
             </form>
             
+            <!--
+                Obs: a lista de cartas é recarregada (evento reloadList) sempre que
+                uma carta é criada ou excluída (veja essas funções em main.py)
+            -->
             <div class="card-list"
-                hx-get="/listar_bagulhos?offset=0&limit=10"
+                hx-get="/listar_bagulhos" hx-vals='{"offset": 0, "limit": 10}' 
                 hx-trigger="load, reloadList from:body"
                 hx-swap="innerHTML">
             </div>

@@ -2,7 +2,7 @@ from typing import Optional, List
 from sqlmodel import SQLModel, Field, Relationship
 import random
 
-
+# cada Categoria receberá uma cor aleatória para suas cartas
 def random_color():
     return f"#{random.randint(0, 0xFFFFFF):06x}"
 

@@ -9,7 +9,8 @@
 {% if has_more %}
 
     <div
-        hx-get="/listar_bagulhos?offset={{ next_offset }}&limit={{ limit }}"
+        hx-get="/listar_bagulhos" 
+        hx-vals='{"offset": {{ next_offset }}, "limit": {{ limit }}}'
         hx-trigger="intersect once"
         hx-swap="outerHTML">
 

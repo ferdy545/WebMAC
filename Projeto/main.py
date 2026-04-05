@@ -51,23 +51,30 @@ def ranking_algorithm(winner: Bagulho, loser: Bagulho):
 
 # =================================================================================================
 
-# Mostrar dois Bagulhos aleatoriamente em index.html
-@app.get("/choice", response_class=HTMLResponse)
+# Mostrar dois Bagulhos aleatoriamente em index.html (é chamada sempre que você vai para index.html)
+@app.get("/escolha", response_class=HTMLResponse)
 def get_choice(request: Request, session: Session = Depends(get_session)):
 
     global debate_serio
 
     lista_bagulhos = session.exec(select(Bagulho)).all()
 
+    # Esta função nunca irá escolher ou carregar cartas se não houverem pelo menos duas na database
     if len(lista_bagulhos) < 2:
         return HTMLResponse('<p style="width: fit-content; margin: 0 auto;">É necessário haver ao menos dois Bagulhos registrados!</p>')
 
+    # Verifica se você está carregando a página pela primeira vez ou se você excluiu uma das duas cartas que estão sendo mostradas
     if not debate_serio or not all(session.get(Bagulho, id) for id in debate_serio):
+
+        # escolhe dois aleatórios
         bagulho1, bagulho2 = random.sample(lista_bagulhos, 2)
         debate_serio = [bagulho1.id, bagulho2.id]
+
+    # caso contrário, não muda as cartas, mesmo que você carregue index.html novamente
     else:
         bagulho1 = session.get(Bagulho, debate_serio[0])
         bagulho2 = session.get(Bagulho, debate_serio[1])
+
 
     return templates.TemplateResponse(
         request = request,
@@ -77,8 +84,8 @@ def get_choice(request: Request, session: Session = Depends(get_session)):
 
 # =================================================================================================
 
-# Atualizar o score depois de clicar no botão em uma das cartas e depois mostrar dois Bagulhos novamente
-@app.post("/update_score/{winner_id}/{loser_id}")
+# Atualizar o score depois de clicar no botão em uma das cartas (card_A.html) e depois mostrar dois Bagulhos novamente
+@app.post("/atualizar_score/{winner_id}/{loser_id}")
 def update_score(winner_id: int, loser_id: int, request: Request, session: Session = Depends(get_session)):
 
     global debate_serio
@@ -86,14 +93,14 @@ def update_score(winner_id: int, loser_id: int, request: Request, session: Sessi
     winner = session.get(Bagulho, winner_id)
     loser = session.get(Bagulho, loser_id)
 
-    if winner and loser:
-        ranking_algorithm(winner, loser)
-        session.add(winner)
-        session.add(loser)
-        session.commit()
+    ranking_algorithm(winner, loser)
+    session.add(winner)
+    session.add(loser)
+    session.commit()
 
     debate_serio.clear() 
     
+    # escolher dois Bagulhos aleatórios novamente, após a escolha que foi feita agora
     return get_choice(request, session)
 
 # =================================================================================================
@@ -103,9 +110,6 @@ def update_score(winner_id: int, loser_id: int, request: Request, session: Sessi
 def delete_bagulho(id: int, session: Session = Depends(get_session)):
 
     bagulho = session.get(Bagulho, id)
-
-    if not bagulho:
-        return {"error": "Not found"}
 
     categoria_id = bagulho.categoria_id
 
